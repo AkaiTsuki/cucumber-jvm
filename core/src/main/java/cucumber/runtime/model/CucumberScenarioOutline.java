@@ -56,7 +56,7 @@ public class CucumberScenarioOutline extends CucumberTagStatement {
         // Make sure we replace the tokens in the name of the scenario
         String exampleScenarioName = replaceTokens(new HashSet<Integer>(), header.getCells(), example.getCells(), getGherkinModel().getName());
 
-        Scenario exampleScenario = new Scenario(example.getComments(), examplesTags, getGherkinModel().getKeyword(), exampleScenarioName, "", example.getLine(), example.getId());
+        Scenario exampleScenario = new Scenario(example.getComments(), examplesTags, getGherkinModel().getKeyword(), exampleScenarioName, getGherkinModel().getDescription(), example.getLine(), example.getId());
         CucumberScenario cucumberScenario = new CucumberScenario(cucumberFeature, cucumberBackground, exampleScenario, example);
         for (Step step : getSteps()) {
             cucumberScenario.step(createExampleStep(step, header, example));
